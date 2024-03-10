@@ -1,5 +1,5 @@
 //Creación API v2 -- con routes y base de datos  video https://www.youtube.com/watch?v=9ZVooCNbdlY
-require('dotenv').config()
+require('dotenv').config() //usa la libreria de dotenv para el entorno de variables
 
 const express = require('express');//express dependencia para crear backend api rest
 //const bodyParser = require('body-parser'); //para que parsee los datos a json
