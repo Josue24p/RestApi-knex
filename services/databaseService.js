@@ -16,6 +16,11 @@ const databaseService = () => {
     const leerClientes = () => {
         return knex(table).select();
     };
+    const clienteId = ({id}) => {
+        return knex(table)
+        .where('IdCliente',id)
+        .select();
+    }
     const crearCliente = ({NroDocumento, ApellidosNombres, FechaHoraRegistro}) =>{
         return knex(table).insert({
             NroDocumento:  NroDocumento, 
@@ -36,7 +41,8 @@ const databaseService = () => {
     return{
         crearCliente,
         leerClientes,
-        actualizarCliente
+        actualizarCliente,
+        clienteId
     };
 
 };
