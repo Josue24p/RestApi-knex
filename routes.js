@@ -11,6 +11,15 @@ module.exports = function(app,databaseService){
         }).catch(e => res.status(500).json(e))
     });
 
+    app.get('/clientes/:id',(req,res)=>{
+        const id= req.params.id; //captura el parametro del url :id
+        databaseService.clienteId({id})
+        .then(clientes => {//"clientes" es la promise, ya que necesito un resultado que viene de la bd
+            res.json(clientes);
+        }).catch(e => res.status(500).json(e))
+    });
+    
+
     app.post('/clientes',(req,res)=>{
     //Muestra los datos que se van a enviar en consola primero
         const nuevoCliente = req.body;
