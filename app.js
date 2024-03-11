@@ -5,7 +5,7 @@ const express = require('express');//express dependencia para crear backend api 
 //const bodyParser = require('body-parser'); //para que parsee los datos a json
 const { databaseService } = require('./services/databaseService');
 
-const app = express();
+const app = express(); //app tiene las funcionalidades de express.
 
 app.use(express.json());//permite el uso de json en las peticiones
 
