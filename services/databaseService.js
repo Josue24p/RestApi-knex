@@ -37,12 +37,18 @@ const databaseService = () => {
             FechaHoraRegistro: FechaHoraRegistro
         });
     }
+    const  eliminarCliente = ({id}) => {
+        return knex(table)
+        .where('IdCliente','=',id)
+        .delete();
+    }
     
     return{
         crearCliente,
         leerClientes,
         actualizarCliente,
-        clienteId
+        clienteId,
+        eliminarCliente
     };
 
 };

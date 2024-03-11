@@ -8,7 +8,7 @@ module.exports = function(app,databaseService){
         databaseService.leerClientes()
         .then(clientes => {//"clientes" es la promise, ya que necesito un resultado que viene de la bd
             res.json(clientes);
-        }).catch(e => res.status(500).json(e))
+        }).catch(e => res.status(500).json(e));
     });
 
     app.get('/clientes/:id',(req,res)=>{
@@ -16,7 +16,7 @@ module.exports = function(app,databaseService){
         databaseService.clienteId({id})
         .then(clientes => {//"clientes" es la promise, ya que necesito un resultado que viene de la bd
             res.json(clientes);
-        }).catch(e => res.status(500).json(e))
+        }).catch(e => res.status(500).json(e));
     });
     
 
@@ -45,4 +45,12 @@ module.exports = function(app,databaseService){
             res.status(500).json(e)
         });
     });
+    
+    app.delete('/clientes/:id', (req, res) => { 
+        const {id}= req.params;
+        databaseService.eliminarCliente({id})
+        .then(clientes =>{
+            res.status(200).json(clientes);
+        }).catch(e => res.status(500).json(e));
+    })
 }
