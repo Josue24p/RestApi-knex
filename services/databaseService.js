@@ -23,10 +23,20 @@ const databaseService = () => {
             FechaHoraRegistro: FechaHoraRegistro
         }); // retorna una promesa 
     };
+    const  actualizarCliente = ({ id, NroDocumento, ApellidosNombres, FechaHoraRegistro }) => {
+        return knex(table)
+        .where('IdCliente',id)
+        .update({
+            NroDocumento: NroDocumento,
+            ApellidosNombres: ApellidosNombres,
+            FechaHoraRegistro: FechaHoraRegistro
+        });
+    }
     
     return{
         crearCliente,
-        leerClientes
+        leerClientes,
+        actualizarCliente
     };
 
 };

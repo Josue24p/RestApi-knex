@@ -24,4 +24,16 @@ module.exports = function(app,databaseService){
                 res.status(500).json(e);
             });
     }); // retorna una promesa se usa async await o then
-};
+
+    app.put('/clientes/:id',(req, res) =>{
+        const {id} = req.params;
+        const { NroDocumento, ApellidosNombres, FechaHoraRegistro } = req.body;
+        
+        databaseService.actualizarCliente({ id, NroDocumento, ApellidosNombres, FechaHoraRegistro })
+        .then(() => {
+            res.status(200).json({ message: 'Cliente actualizado correctamente'});
+        }).catch(e => {
+            res.status(500).json(e)
+        });
+    });
+}
